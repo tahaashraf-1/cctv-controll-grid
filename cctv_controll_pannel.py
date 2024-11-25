@@ -259,8 +259,8 @@ class CCTVGridFrame(ttk.Frame):
         else:
             self.next_button.state(['disabled'])
 
-        # self.prev_button.state(['!disabled'] if self.current_page > 0 else ['disabled'])
-        # self.next_button.state(['!disabled'] if self.current_page < (self.total_pages - 1) else ['disabled'])
+        self.prev_button.state(['!disabled'] if self.current_page > 0 else ['disabled'])
+        self.next_button.state(['!disabled'] if self.current_page < (self.total_pages - 1) else ['disabled'])
 
     def start_recording(self, camera_position):
         if camera_position not in self.video_writers:
