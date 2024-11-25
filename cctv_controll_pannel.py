@@ -137,7 +137,7 @@ class CCTVGridFrame(ttk.Frame):
         self.camera_frames = []
         for row in range(4):
             for col in range(4):
-                frame = ttk.Frame(self, relief="solid", borderwidth=3, width=180,height=120)
+                frame = ttk.Frame(self, relief="solid", borderwidth=3, width=180,height=130)
                 frame.grid(row=row, column=col, padx=2, pady=2, sticky="nsew")
 
                 frame.pack_propagate(False)
@@ -170,14 +170,14 @@ class CCTVGridFrame(ttk.Frame):
             text="Start Rec",
             command=lambda pos=len(self.camera_labels) - 1: self.start_recording(pos)
         )
-        start_btn.place(relx=0.1, rely=0.8, anchor="center")
+        start_btn.place(relx=0.1, rely=0.8, anchor="sw")
 
         stop_btn = ttk.Button(
             overlay_frame,
             text="Stop Rec",
             command=lambda pos=len(self.camera_labels) - 1: self.stop_recording(pos)
         )
-        stop_btn.place(relx=0.9, rely=0.8, anchor="center")
+        stop_btn.place(relx=0.9, rely=0.8, anchor="se")
 
         # noinspection PyTypeChecker
         self.camera_frames.append({
@@ -216,6 +216,7 @@ class CCTVGridFrame(ttk.Frame):
         self.next_button.pack(side=tk.LEFT, padx=5)
 
         self.update_button_states()
+
 
 
     def next_page(self):
